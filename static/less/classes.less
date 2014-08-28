@@ -1,0 +1,22 @@
+.list-unstyled {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.transition(@elem: all, @time: .5s, @easing: ease) {
+	-webkit-transition: @elem @time @easing;
+	        transition: @elem @time @easing;
+}
+
+.box-sizing(@val: border-box) {
+	-webkit-box-sizing: @val;
+	   -moz-box-sizing: @val;
+	        box-sizing: @val;
+}
+
+.transform(@val) {
+	-webkit-transform: @val;
+	    -ms-transform: @val;
+	        transform: @val;
+}
