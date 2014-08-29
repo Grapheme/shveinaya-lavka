@@ -347,7 +347,7 @@ body {
   float: none;
 }
 .main-header .mobile-header .head-contacts .right-block li {
-  padding-left: 0.625rem;
+  padding: 0 0 0 0.625rem;
 }
 .main-header .mobile-header .head-contacts .right-block li:first-child {
   border: 0;
