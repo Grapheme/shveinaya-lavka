@@ -4,9 +4,9 @@
 	list-style: none;
 }
 
-.transition(@elem: all, @time: .5s, @easing: ease) {
-	-webkit-transition: @elem @time @easing;
-	        transition: @elem @time @easing;
+.transition(@elem: all, @time: .5s, @easing: ease, @delay: 0) {
+	-webkit-transition: @elem @time @easing @delay;
+	        transition: @elem @time @easing @delay;
 }
 
 .box-sizing(@val: border-box) {
