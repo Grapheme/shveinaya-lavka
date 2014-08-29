@@ -1,0 +1,56 @@
+@media screen and (min-width: 1460px) {
+	html {
+		font-size: @hfs + 3px;
+	}
+}
+
+@media screen and (max-width: 1040px) {
+	html {
+		font-size: @hfs - 3px;
+	}
+}
+
+@media screen and (max-width: 860px) {
+	html {
+		font-size: @hfs - 6px;
+	}
+}
+
+@media screen and (max-width: 680px) {
+	html {
+		font-size: ~'@{hfs}px';
+	}
+
+	.main-header {
+		padding: 0;
+		background: transparent;
+		position: relative;
+
+		.mobile-header {
+			display: block;
+
+			header {
+				.transition(height, .5s, ease);
+				height: 70rem / @hfs;
+			}
+		}
+
+		& > .wrapper {
+			display: none;
+		}
+	}
+
+	.main-header.index-header {
+		/*height: 165rem / @hfs;*/
+
+		.mobile-header {
+			header {
+				height: 170rem / @hfs;
+			}
+		}
+
+		.mobile-logo {
+			opacity: 0;
+		}
+	}
+}
