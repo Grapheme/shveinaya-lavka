@@ -103,6 +103,7 @@ var scroll_menu = (function(){
 })();
 
 $.fn.main_slider = function(slide) {
+	alert(Modernizr.hasEvent('mousewheel'));
 	var direction = false;
 	var down_timeout = false;
 	var up_timeout = false;
