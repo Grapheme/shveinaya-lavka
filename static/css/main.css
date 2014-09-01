@@ -98,8 +98,29 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Vaccine-Regular';
+  src: url('../fonts/Vaccine-Regular_latin+latin-ext+cyrillic+cyrillic-ext_gdi.eot');
+  src: url('../fonts/Vaccine-Regular_latin+latin-ext+cyrillic+cyrillic-ext_gdi.eot?#iefix') format('embedded-opentype'), url('../fonts/Vaccine-Regular_latin+latin-ext+cyrillic+cyrillic-ext_gdi.woff') format('woff'), url('../fonts/Vaccine-Regular_latin+latin-ext+cyrillic+cyrillic-ext_gdi.ttf') format('truetype'), url('../fonts/Vaccine-Regular_latin+latin-ext+cyrillic+cyrillic-ext_gdi.svg#Vaccine-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Vaccine-Bold';
+  src: url('../fonts/Vaccine-Bold_latin+latin-ext+cyrillic+cyrillic-ext_gdi.eot');
+  src: url('../fonts/Vaccine-Bold_latin+latin-ext+cyrillic+cyrillic-ext_gdi.eot?#iefix') format('embedded-opentype'), url('../fonts/Vaccine-Bold_latin+latin-ext+cyrillic+cyrillic-ext_gdi.woff') format('woff'), url('../fonts/Vaccine-Bold_latin+latin-ext+cyrillic+cyrillic-ext_gdi.ttf') format('truetype'), url('../fonts/Vaccine-Bold_latin+latin-ext+cyrillic+cyrillic-ext_gdi.svg#Vaccine-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Vaccine-Regular';
+  src: url('../fonts/Vaccine-Italic_latin+latin-ext+cyrillic+cyrillic-ext_gdi.eot');
+  src: url('../fonts/Vaccine-Italic_latin+latin-ext+cyrillic+cyrillic-ext_gdi.eot?#iefix') format('embedded-opentype'), url('../fonts/Vaccine-Italic_latin+latin-ext+cyrillic+cyrillic-ext_gdi.woff') format('woff'), url('../fonts/Vaccine-Italic_latin+latin-ext+cyrillic+cyrillic-ext_gdi.ttf') format('truetype'), url('../fonts/Vaccine-Italic_latin+latin-ext+cyrillic+cyrillic-ext_gdi.svg#Vaccine-Italic') format('svg');
+  font-style: italic;
+  font-stretch: normal;
+}
 html {
-  font-family: 'spsl_clarendoncregular';
+  font-family: 'Vaccine-Regular';
   font-size: 16px;
 }
 .wrapper {
@@ -245,13 +266,13 @@ html {
 }
 .main-header .head-nav ul li {
   display: inline-block;
-  margin-right: 1.5em;
+  margin-right: 2.75em;
 }
 .main-header .head-nav ul li:last-child {
   margin-right: 0;
 }
 .main-header .head-nav ul li a {
-  font-family: 'spsl_clarendoncbold';
+  font-family: 'Vaccine-Bold';
   -webkit-transition: all 0.1s ease 0s;
   transition: all 0.1s ease 0s;
   position: relative;
@@ -481,7 +502,66 @@ html {
   bottom: 0;
 }
 .index-page .main-slide {
+  position: relative;
   height: 100%;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+.index-page .main-slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  opacity: .3;
+}
+.index-page .main-slide:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%;
+}
+.index-page .main-slide.slide-welcome:before {
+  background-image: url(../img/index/slide_1.jpg);
+}
+.index-page .main-slide.slide-service:before {
+  background-image: url(../img/index/slide_5.jpg);
+}
+.index-page .main-slide.slide-partners:before {
+  background-image: url(../img/index/slide_4.jpg);
+}
+.index-page .main-slide.slide-examples:before {
+  background-image: url(../img/index/slide_3.jpg);
+}
+.index-page .main-slide.slide-location:before {
+  background-image: url(../img/index/slide_2.jpg);
+}
+.index-page .main-slide:first-child .slide-block {
+  top: 4.895833333333333rem;
+}
+.index-page .main-slide .slide-block {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+  width: 95%;
+  max-width: 43.75rem;
+  margin: 0 auto;
+}
+.index-page .main-slide .slide-block h1 {
+  font-family: 'spsl_clarendoncregular';
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 4.5rem;
+}
+.index-page .main-slide .slide-block p {
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.575rem;
 }
 @media screen and (min-width: 1460px) {
   html {

@@ -94,8 +94,6 @@ var scroll_menu = (function(){
 $.fn.main_slider = function() {
 	$(this).on('mousewheel DOMMouseScroll', function(){
 		console.log(123);
-		return false;
+		//return false;
 	});
 };
-
-$(document).main_slider();

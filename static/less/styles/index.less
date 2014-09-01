@@ -3,6 +3,75 @@
 	top: 0; left: 0; right: 0; bottom: 0;
 
 	.main-slide {
+		position: relative;
 		height: 100%;
+		background: #000;
+		color: #fff;
+		text-align: center;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0; left: 0; right: 0; bottom: 0;
+			background-size: cover;
+			opacity: .3;
+		}
+
+		&:after {
+			content: "";
+			display: inline-block;
+			vertical-align: middle;
+			width: 0;
+			height: 100%;
+		}
+
+		&.slide-welcome:before {
+			background-image: url(../img/index/slide_1.jpg);
+		}
+
+		&.slide-service:before {
+			background-image: url(../img/index/slide_5.jpg);
+		}
+
+		&.slide-partners:before {
+			background-image: url(../img/index/slide_4.jpg);
+		}
+
+		&.slide-examples:before {
+			background-image: url(../img/index/slide_3.jpg);
+		}
+
+		&.slide-location:before {
+			background-image: url(../img/index/slide_2.jpg);
+		}
+
+		&:first-child {
+			.slide-block {
+				top: 235rem / 3 / @hfs;
+			}
+		}
+
+		.slide-block {
+			display: inline-block;
+			vertical-align: middle;
+			position: relative;
+			z-index: 1;
+			width: 95%;
+			max-width: 700rem / @hfs;
+			margin: 0 auto;
+
+			h1 {
+				.spsl_regular;
+				font-size: 60rem / @hfs;
+				font-weight: 700;
+				line-height: 72rem / @hfs;
+			}
+
+			p {
+				font-size: 18rem / @hfs;
+				font-style: italic;
+				line-height: 25.2rem / @hfs;
+			}
+		}
 	}
 }
