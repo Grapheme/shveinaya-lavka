@@ -592,6 +592,14 @@ html {
 .index-page .main-slide:first-child .slide-block {
   top: 4.895833333333333rem;
 }
+.index-page .main-slide.animate .slide-block {
+  -webkit-transition: opacity 0.5s ease 0.5s;
+  transition: opacity 0.5s ease 0.5s;
+  opacity: 0;
+}
+.index-page .main-slide.animate.active .slide-block {
+  opacity: 1;
+}
 .index-page .main-slide .slide-block {
   display: inline-block;
   vertical-align: middle;

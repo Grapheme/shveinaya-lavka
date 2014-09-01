@@ -116,7 +116,7 @@ $.fn.main_slider = function(slide) {
 	var allow = true;
 	var length = slide.length - 1;
 
-	if((!Modernizr.hasEvent('mousewheel') && !Modernizr.hasEvent('mousewheel')) || is_mobile()) {
+	if((!Modernizr.hasEvent('mousewheel') && !Modernizr.hasEvent('DOMMouseScroll')) || is_mobile()) {
 		$(this).on('click', '.slide-link', function(){
 			var index = $(this).parent().index();
 			if(index != length) {
@@ -137,6 +137,7 @@ $.fn.main_slider = function(slide) {
 		$('html').css('overflow', 'hidden');
 		$('.main-header').addClass('animate');
 		active__frame.addClass('active');
+		slide.addClass('animate');
 	}
 
 	function setActive() {
@@ -173,13 +174,12 @@ $.fn.main_slider = function(slide) {
 				func();
 				setTimeout(function(){
 					allow = true;
-				}, 1450);
+				}, 450);
 			}
 		}, 50);
 	}
 
 	$(this).on('mousewheel DOMMouseScroll', function(event){
-		if(!allow) return;
 		if (event.type == 'mousewheel') {
 			delta = event.originalEvent.wheelDelta;
 		} else
@@ -188,9 +188,11 @@ $.fn.main_slider = function(slide) {
 			delta = -1 * event.originalEvent.detail;
 		}
 
+		if(!allow || Math.abs(delta) < 100) return;
+
 		if(delta < 0) {
 			goto(up_timeout, down_timeout, down, (delta < 0));
-		} else {
+		} else if(delta > 0) {
 			goto(down_timeout, up_timeout, up, (delta > 0));
 		}
 		return false;
@@ -203,6 +205,17 @@ $.fn.main_slider = function(slide) {
 			setTransform(0, 0);
 		}
 		return false;
+	});
+
+	$(document).on('keydown', function(e){
+		var event = window.event ? window.event : e;
+		var key = event.keyCode;
+	    if(key == 40) {
+	       down();
+	    }
+	    if(key == 38) {
+	       up();
+	    }
 	});
 
 	init();

@@ -52,6 +52,19 @@
 			}
 		}
 
+		&.animate {
+			.slide-block {
+				.transition(opacity, .5s, ease, .5s);
+				opacity: 0;
+			}
+
+			&.active {
+				.slide-block {
+					opacity: 1;
+				}
+			}
+		}
+
 		.slide-block {
 			display: inline-block;
 			vertical-align: middle;
