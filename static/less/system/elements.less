@@ -1,0 +1,32 @@
+.spec-btn {
+	.transition(color, .25s);
+	.spsl_regular;
+	position: relative;
+	display: inline-block;
+	width: 408rem / @hfs;
+	height: 44rem / @hfs;
+	line-height: 44rem / @hfs;
+	color: #fff;
+	text-decoration: none;
+
+	&:before, &:after {
+		.transition(opacity, .25s);
+		content: "";
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: 0;
+		background-size: 100% auto;
+		background-position: center center;
+		background-repeat: no-repeat;
+		z-index: -1;
+	}
+
+	&:before { background-image: url(../img/elements/btn.png); }
+	&:after { background-image: url(../img/elements/btn-hover.png); opacity: 0; }
+
+	&:hover {
+		color: #000;
+
+		&:before { opacity: 0; }
+		&:after { opacity: 1; }
+	}
+}
