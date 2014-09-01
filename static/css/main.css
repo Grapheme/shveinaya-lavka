@@ -104,6 +104,7 @@ html {
 }
 body {
   background: #ccc;
+  min-height: 10000px;
 }
 .wrapper {
   width: 100%;
@@ -117,6 +118,13 @@ body {
   list-style: none;
 }
 .main-header {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
   background: #fff;
   padding: 0 1.25rem;
   /** Mobile Elements **/
@@ -132,13 +140,43 @@ body {
   background: #272727;
 }
 .main-header .logo {
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
   position: absolute;
   display: inline-block;
   width: 8.75rem;
   height: 11.25rem;
   top: 1.125rem;
-  left: 0rem;
-  background: url(../img/header/main-logo.jpg) no-repeat center center / auto 100%;
+  left: 0;
+  background-image: url(../img/header/main-logo.png);
+  background-size: auto 100%;
+}
+.main-header .min-logo {
+  -webkit-transition: all 0.25s ease 0s;
+  transition: all 0.25s ease 0s;
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+  opacity: 0;
+  position: absolute;
+  display: inline-block;
+  width: 4rem;
+  height: 3rem;
+  bottom: 1rem;
+  left: 4rem;
+  background-image: url(../img/header/min-logo.jpg);
+  background-size: auto 100%;
+}
+.main-header.min-header .logo {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.main-header.min-header .min-logo {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
 }
 .main-header .head-cont {
   margin-left: 11.25rem;
@@ -217,8 +255,8 @@ body {
 }
 .main-header .head-nav ul li a {
   font-family: 'spsl_clarendoncbold';
-  -webkit-transition: all 0.1s ease 0;
-  transition: all 0.1s ease 0;
+  -webkit-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
   position: relative;
   display: inline-block;
   text-decoration: none;
@@ -255,10 +293,16 @@ body {
   background: #b37bb4;
   opacity: 1;
 }
+.main-header.index-header .mobile-logo {
+  opacity: 0;
+}
+.main-header.index-header .mobile-header header {
+  height: 10.625rem;
+}
 .main-header.index-header .mobile-header .logo {
   display: inline-block;
-  -webkit-transition: all 0.5s ease 0;
-  transition: all 0.5s ease 0;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
   width: 6.875rem;
   height: 9.0625rem;
   top: 0.625rem;
@@ -281,28 +325,57 @@ body {
 .main-header.index-header .mobile-header.open .mobile-logo {
   opacity: 1;
 }
+.main-header .menu-icon {
+  position: absolute;
+  right: 0.9375rem;
+  top: 20px;
+  width: 1.875rem;
+  height: 1.875rem;
+}
+.main-header .menu-icon span {
+  -webkit-transition: all 0.5s ease 0.25s;
+  transition: all 0.5s ease 0.25s;
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 0;
+  margin-top: -2px;
+  width: 100%;
+  height: 4px;
+  background: #000;
+}
+.main-header .menu-icon span:before,
+.main-header .menu-icon span:after {
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+}
+.main-header .menu-icon span:before {
+  -webkit-transform: translateY(-225%);
+  -ms-transform: translateY(-225%);
+  transform: translateY(-225%);
+}
+.main-header .menu-icon span:after {
+  -webkit-transform: translateY(225%);
+  -ms-transform: translateY(225%);
+  transform: translateY(225%);
+}
 .main-header .mobile-header {
   display: none;
+  max-height: 18.75rem;
+  max-height: 100vh;
+  overflow: auto;
 }
-.main-header .mobile-header.open .mobile-menu {
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-}
-.main-header .mobile-header.open .menu-icon span {
-  -webkit-transition: all 0.25s ease 0;
-  transition: all 0.25s ease 0;
-  background: transparent;
-}
-.main-header .mobile-header.open .menu-icon span:before {
-  -webkit-transform: translateY(0) rotate(45deg);
-  -ms-transform: translateY(0) rotate(45deg);
-  transform: translateY(0) rotate(45deg);
-}
-.main-header .mobile-header.open .menu-icon span:after {
-  -webkit-transform: translateY(0) rotate(-45deg);
-  -ms-transform: translateY(0) rotate(-45deg);
-  transform: translateY(0) rotate(-45deg);
+.main-header .mobile-header header {
+  -webkit-transition: height 0.5s ease 0s;
+  transition: height 0.5s ease 0s;
+  height: 4.375rem;
 }
 .main-header .mobile-header .logo {
   display: none;
@@ -314,8 +387,8 @@ body {
   z-index: 1;
 }
 .main-header .mobile-header .mobile-menu {
-  -webkit-transition: all 0.5s ease 0;
-  transition: all 0.5s ease 0;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
   -webkit-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
   transform: translateY(-100%);
@@ -354,57 +427,54 @@ body {
   margin: 0;
   padding: 0;
 }
-.main-header .menu-icon {
-  position: absolute;
-  right: 0.9375rem;
-  top: 20px;
-  width: 1.875rem;
-  height: 1.875rem;
-}
-.main-header .menu-icon span {
-  -webkit-transition: all 0.5s ease 0.25s;
-  transition: all 0.5s ease 0.25s;
-  position: absolute;
-  display: inline-block;
-  top: 50%;
-  left: 0;
-  margin-top: -0.125rem;
-  width: 100%;
-  height: 0.25rem;
-  background: #000;
-}
-.main-header .menu-icon span:before,
-.main-header .menu-icon span:after {
-  -webkit-transition: all 0.5s ease 0;
-  transition: all 0.5s ease 0;
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background: #000;
-}
-.main-header .menu-icon span:before {
-  -webkit-transform: translateY(-225%);
-  -ms-transform: translateY(-225%);
-  transform: translateY(-225%);
-}
-.main-header .menu-icon span:after {
-  -webkit-transform: translateY(225%);
-  -ms-transform: translateY(225%);
-  transform: translateY(225%);
-}
 .main-header .mobile-logo {
-  -webkit-transition: opacity 0.5s ease 0;
-  transition: opacity 0.5s ease 0;
+  -webkit-transition: opacity 0.5s ease 0s;
+  transition: opacity 0.5s ease 0s;
   position: absolute;
   left: 0.9375rem;
   top: 50%;
   margin-top: -1.53125rem;
   width: 4.125rem;
   height: 3.0625rem;
-  background: url(../img/header/mobile-logo.jpg);
+  background-image: url(../img/header/mobile-logo.jpg);
+  background-size: 100% auto;
+}
+.main-header.open {
+  height: auto;
+}
+.main-header.open .mobile-header .mobile-menu {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+.main-header.open .mobile-header .menu-icon span {
+  -webkit-transition: all 0.25s ease 0s;
+  transition: all 0.25s ease 0s;
+  background: transparent;
+}
+.main-header.open .mobile-header .menu-icon span:before {
+  -webkit-transform: translateY(0) rotate(45deg);
+  -ms-transform: translateY(0) rotate(45deg);
+  transform: translateY(0) rotate(45deg);
+}
+.main-header.open .mobile-header .menu-icon span:after {
+  -webkit-transform: translateY(0) rotate(-45deg);
+  -ms-transform: translateY(0) rotate(-45deg);
+  transform: translateY(0) rotate(-45deg);
+}
+.main-header.open.index-header .mobile-header header {
+  height: 4.375rem !important;
+}
+.main-header.open.index-header .mobile-header .logo {
+  top: 0.625rem;
+  left: 0.9375rem;
+  height: 3.125rem;
+  width: 3.125rem;
+  margin: 0;
+  opacity: 0;
+}
+.main-header.open.index-header .mobile-header .mobile-logo {
+  opacity: 1;
 }
 @media screen and (min-width: 1460px) {
   html {
@@ -426,29 +496,25 @@ body {
     font-size: 16px;
   }
   .main-header {
-    padding: 0;
+    position: fixed;
+    overflow: hidden;
     background: transparent;
-    position: relative;
+    padding: 0;
+    height: 4.375rem;
   }
   .main-header .mobile-header {
     display: block;
-  }
-  .main-header .mobile-header header {
-    -webkit-transition: height 0.5s ease 0;
-    transition: height 0.5s ease 0;
-    height: 4.375rem;
   }
   .main-header > .wrapper {
     display: none;
   }
   .main-header.index-header {
-    /*height: 165rem / @hfs;*/
-  }
-  .main-header.index-header .mobile-header header {
     height: 10.625rem;
   }
-  .main-header.index-header .mobile-logo {
-    opacity: 0;
+}
+@media screen and (max-width: 325px) {
+  html {
+    font-size: 13px;
   }
 }
 /* ==========================================================================

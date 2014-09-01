@@ -22,35 +22,28 @@
 	}
 
 	.main-header {
-		padding: 0;
+		position: fixed;
+		overflow: hidden;
 		background: transparent;
-		position: relative;
+		padding: 0;
+		height: 70rem / @hfs;
 
 		.mobile-header {
 			display: block;
-
-			header {
-				.transition(height, .5s, ease);
-				height: 70rem / @hfs;
-			}
 		}
 
 		& > .wrapper {
 			display: none;
 		}
+
+		&.index-header {
+			height: 170rem / @hfs;
+		}
 	}
+}
 
-	.main-header.index-header {
-		/*height: 165rem / @hfs;*/
-
-		.mobile-header {
-			header {
-				height: 170rem / @hfs;
-			}
-		}
-
-		.mobile-logo {
-			opacity: 0;
-		}
+@media screen and (max-width: 325px) {
+	html {
+		font-size: @hfs - 3px;
 	}
 }
