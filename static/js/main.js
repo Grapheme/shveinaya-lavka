@@ -35,8 +35,11 @@ var scroll_menu = (function(){
 	var header, orig_nav;
 		header = $('.main-header');
 
-	setVars();
-	setNav();
+	
+	if(!is_mobile()) {
+		setVars();
+		setNav();
+	}
 
 	$(window).on('scroll', function(){
 		if(!is_mobile()) {
@@ -45,12 +48,10 @@ var scroll_menu = (function(){
 	});
 
 	$(window).on('resize', function(){
+		navReset();
 		if(!is_mobile()) {
-			navReset();
 			setVars();
 			setNav();
-		} else {
-			navReset();
 		}
 	});
 
