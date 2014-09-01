@@ -21,7 +21,9 @@ var mobile_menu = (function(){
 				open = false;
 			} else {
 				clearTimeout(out);
-				header.addClass('open');
+				setTimeout(function(){
+					header.addClass('open');
+				}, 1)
 				header.css({ 'overflow': 'visible' });
 				open = true;
 			}
@@ -60,18 +62,22 @@ var scroll_menu = (function(){
 	}
 
 	function setMin() {
-		header.css({
-			'position': 'fixed',
-			'top': -orig_nav
-		});
+		setTimeout(function(){
+				header.css({
+				'position': 'fixed',
+				'top': -orig_nav
+			});
+		}, 1);
 		header.addClass('min-header');
 	}
 
 	function setBig() {
-		header.css({
-			'position': 'absolute',
-			'top': 0
-		});
+		setTimeout(function(){
+			header.css({
+				'position': 'absolute',
+				'top': 0
+			});
+		}, 1);
 		header.removeClass('min-header');
 	}
 
@@ -103,13 +109,29 @@ var scroll_menu = (function(){
 })();
 
 $.fn.main_slider = function(slide) {
-	alert(Modernizr.hasEvent('mousewheel'));
 	var direction = false;
 	var down_timeout = false;
 	var up_timeout = false;
 	var active__frame = slide.eq(0);
 	var allow = true;
 	var length = slide.length - 1;
+
+	if((!Modernizr.hasEvent('mousewheel') && !Modernizr.hasEvent('mousewheel')) || is_mobile()) {
+		$(this).on('click', '.slide-link', function(){
+			var index = $(this).parent().index();
+			if(index != length) {
+				$('html, body').animate({
+					scrollTop: slide.eq(index+1).offset().top
+				}, 250);
+			} else {
+				$('html, body').animate({
+					scrollTop: 0
+				}, 250);
+			}
+			return false;
+		});
+		return;
+	}
 
 	function init() {
 		$('html').css('overflow', 'hidden');
@@ -180,6 +202,7 @@ $.fn.main_slider = function(slide) {
 		} else {
 			setTransform(0, 0);
 		}
+		return false;
 	});
 
 	init();
