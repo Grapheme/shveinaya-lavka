@@ -102,10 +102,6 @@ html {
   font-family: 'spsl_clarendoncregular';
   font-size: 16px;
 }
-body {
-  background: #ccc;
-  min-height: 10000px;
-}
 .wrapper {
   width: 100%;
   max-width: 77.5rem;
@@ -127,6 +123,7 @@ body {
   left: 0;
   background: #fff;
   padding: 0 1.25rem;
+  z-index: 2;
   /** Mobile Elements **/
 }
 .main-header .wrapper {
@@ -475,6 +472,16 @@ body {
 }
 .main-header.open.index-header .mobile-header .mobile-logo {
   opacity: 1;
+}
+.index-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.index-page .main-slide {
+  height: 100%;
 }
 @media screen and (min-width: 1460px) {
   html {
