@@ -12,6 +12,7 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
+        <link rel="stylesheet" href="css/fotorama/fotorama.css">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -23,6 +24,7 @@
 
         <header class="main-header">
             <div class="wrapper">
+                <a href="index.html" class="min-logo"></a>
                 <a href="index.html" class="logo"></a>
                 <div class="head-cont">
                     <h1 class="head-title">Профессиональный ремонт, реставрация и подгонка одежды по фигуре</h1>
@@ -46,7 +48,7 @@
                     <nav class="head-nav">
                         <ul>
                             <li><a href="about.html">Об ателье</a>
-                            <li><a href="service.html">Услуги</a>
+                            <li><a class="active" href="service.html">Услуги</a>
                             <li><a href="examples.html">Примеры работ</a>
                             <li><a href="advice.html">Советы стилиста</a>
                             <li><a href="news.html">Новости</a>
@@ -67,7 +69,7 @@
                     <nav class="head-nav">
                         <ul>
                             <li><a href="about.html">Об ателье</a>
-                            <li><a href="service.html">Услуги</a>
+                            <li><a class="active" href="service.html">Услуги</a>
                             <li><a href="examples.html">Примеры работ</a>
                             <li><a href="advice.html">Советы стилиста</a>
                             <li><a href="news.html">Новости</a>
@@ -96,10 +98,35 @@
             </div>
         </header>
 
+        <main class="normal-page">
+            <div class="wrapper">
+                <div class="page-title service-title">
+                    <div class="title-img"></div>
+                    <h1>Услуги</h1>
+                </div>
+                <div class="page-content">
+                    <div class="service-item">
+                        <h2>Вызов мастера в офис</h2>
+                        <p class="desc">
+                            Новая услуга длля занятых деловых людей.  Еще что-то надо написать, чтобы было что прочитать.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer"></footer>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/vendor/fotorama.js"></script>
         <script src="js/main.js"></script>
+        <script>
+            var $fotoramaDiv =  $('.photo-slider').fotorama({
+                'nav': false
+            });
+            var fotorama = $fotoramaDiv.data('fotorama');
+        </script>
 
     </body>
 </html>
