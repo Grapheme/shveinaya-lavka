@@ -129,7 +129,8 @@
 
 	.slider-container {
 		position: relative;
-		
+		margin-bottom: 80rem / @hfs;
+
 		.slider-border {
 			border: 1px solid rgba(255, 255, 255, .5);
 			padding: 2px;
@@ -137,6 +138,21 @@
 			.photo-slider {
 				border: 1px solid #fff;
 			}
+		}
+
+		.fotorama-nav {
+			position: absolute;
+			line-height: 42rem / @hfs;
+			width: 112rem / @hfs;
+			height: 42rem / @hfs;
+			margin-left: -112rem / 2 / @hfs;
+			left: 50%;
+			bottom: -42rem / 2 / @hfs;
+			background: url(../img/elements/fotorama-nav.png);
+			background-size: 100% 100%;
+			font-size: 20em / @hfs;
+			font-style: italic;
+			text-align: center;
 		}
 
 		.prev, .next {
@@ -159,5 +175,22 @@
 			background-image: url(../img/elements/arrow-right.png);
 			right: -30rem / @hfs;
 		}
+	}
+
+	.desc {
+		margin: 35rem / @hfs 0;
+		font-size: 18em / @hfs;
+		font-style: italic;
+		text-align: center;
+	}
+
+	.page-content {
+		-webkit-column-count: 2; /* Chrome, Safari, Opera */
+	    -moz-column-count: 2; /* Firefox */
+	    column-count: 2;
+
+	    p {
+	    	margin-top: 0;
+	    }
 	}
 }

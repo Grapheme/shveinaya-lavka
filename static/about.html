@@ -117,6 +117,9 @@
                             <img src="img/content/about4.jpg" alt="">
                         </div>
                     </div>
+                    <div class="fotorama-nav">
+                        <span></span> из <span></span>
+                    </div>
                     <a href="#" class="prev"></a>
                     <a href="#" class="next"></a>
                 </div>
@@ -137,20 +140,24 @@
                         Работаем со всеми типами ткани, трикотажем, шелком, мехом и кожей.
                     </p>
                 </div>
+                <div class="desc">
+                    Мы всегда ждем вас!
+                </div>
             </div>
+            <footer class="main-footer">
+                <div class="wrapper">
+                    <span>&copy; Швейная лавка, 2014</span>
+                    <span class="fl-r">Разработано в Графеме.</span>
+                </div>
+            </footer>
         </main>
-
-        <footer class="main-footer"></footer>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/vendor/fotorama.js"></script>
         <script src="js/main.js"></script>
         <script>
-            var $fotoramaDiv =  $('.photo-slider').fotorama({
-                'nav': false
-            });
-            var fotorama = $fotoramaDiv.data('fotorama');
+            $('.photo-slider').custom_fotorama();
         </script>
 
     </body>
