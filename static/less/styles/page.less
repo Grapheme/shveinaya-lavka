@@ -125,6 +125,29 @@
 				&:after { background-image: url(../img/pages/news.before.png); }
 			}
 		}
+
+		//CONTACTS PAGE TITLE
+		&.contacts-title {
+			.title-img {
+
+				&:before {
+					width: 92rem / @hfs;
+					height: 92rem / @hfs;
+					background-image: url(../img/pages/contacts-title.png);
+				}
+			}
+
+			h1 {
+				&:before, &:after {
+					width: 193rem / @hfs;
+					height: 19rem / @hfs;
+					margin-top: -19rem / 2 / @hfs;
+				}
+
+				&:before { background-image: url(../img/pages/contacts.before.png); }
+				&:after { background-image: url(../img/pages/contacts.before.png); }
+			}
+		}
 	}
 
 	.slider-container {
@@ -179,6 +202,13 @@
 
 	.columns {
 		.auto-columns;
+	}
+
+	.desc {
+		margin: 35rem / @hfs 0;
+		font-size: 18em / @hfs;
+		font-style: italic;
+		text-align: center;
 	}
 
 	.page-content {

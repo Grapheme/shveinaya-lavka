@@ -227,12 +227,18 @@ $.fn.main_slider = function(slide) {
 	init();
 };
 
-$.fn.custom_fotorama = function() {
+$.fn.custom_fotorama = function(height, example) {
+
+	height = typeof height !== 'undefined' ? height : false;
+	example = typeof example !== 'undefined' ? example : false;
+
 	var settings = {
 		'nav': false,
 		'arrows': false,
 		'loop': true,
-		'fit': 'cover'
+		'fit': 'cover',
+		'width': '100%',
+		'maxheight': height
 	};
 
 	$(this).fotorama(settings);
@@ -241,8 +247,15 @@ $.fn.custom_fotorama = function() {
 	var $fotoramaDiv =  $(this).fotorama(settings);
     var fotorama = $fotoramaDiv.data('fotorama');
 
+    function setExample() {
+    	$('.examples-tabs .example')
+    	.eq(fotorama.activeIndex).addClass('active')
+    	.siblings().removeClass('active');
+    }
+
     fotorama__nav.find('span').eq(0).text(fotorama.activeIndex + 1);
     fotorama__nav.find('span').eq(1).text(fotorama.size);
+    if(example) setExample();
 
     $(document).on('click', '.slider-container .prev', function(){
     	fotorama.show('<');
@@ -258,7 +271,44 @@ $.fn.custom_fotorama = function() {
 	  'fotorama:show',
 	  function () {
 	    fotorama__nav.find('span').eq(0).text(fotorama.activeIndex + 1);
+	    if(example) setExample();
 	  }
 	);
+};
+
+$.fn.tabs = function() {
+	var block = $(this).attr('data-tabs');
+	var tab_links = $(this).find('li');
+	var tab_parent = $(this);
+	var block_parent = $('.js-parent[data-tabs="' + block + '"]');
+	var blocks = block_parent.find('.js-tab');
+
+	$.fn.linkActive = function() {
+		$(this).addClass('active')
+		.siblings().removeClass('active');
+	};
+
+	$.fn.tabActive = function() {
+		$(this).show()
+		.siblings().hide();
+	};
+
+	function go(id) {
+		tab_parent.find('[data-tab="' + id + '"]').linkActive();
+		block_parent.find('[data-block="' + id + '"]').tabActive();
+	}
+
+	function init() {
+		blocks.first().tabActive();
+		tab_links.first().linkActive();
+	}
+
+	init();
+
+	$(document).on('click', '.js-tabs li',function(){
+		var data = $(this).attr('data-tab');
+		go(data);
+		return false;
+	});
 };
 
