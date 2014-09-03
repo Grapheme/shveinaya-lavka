@@ -5,7 +5,7 @@
 	min-height: 100%;
 	background: url(../img/main/texture.jpeg);
 	color: #fff;
-	padding-top: 235rem / @hfs;
+	padding: 235rem / @hfs 0 85rem / @hfs;
 
 	.page-title {
 		padding-top: 40rem / @hfs;
@@ -177,17 +177,11 @@
 		}
 	}
 
-	.desc {
-		margin: 35rem / @hfs 0;
-		font-size: 18em / @hfs;
-		font-style: italic;
-		text-align: center;
+	.columns {
+		.auto-columns;
 	}
 
 	.page-content {
-		-webkit-column-count: 2; /* Chrome, Safari, Opera */
-	    -moz-column-count: 2; /* Firefox */
-	    column-count: 2;
 
 	    p {
 	    	margin-top: 0;

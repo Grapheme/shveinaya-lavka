@@ -157,6 +157,47 @@ h2 {
   font-family: 'spsl_clarendoncregular';
   font-size: 2rem;
 }
+main ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+main ul li {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1.875rem;
+}
+main ul li:before {
+  content: "";
+  position: absolute;
+  left: 0.9375rem;
+  top: .4em;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #fff;
+}
+.dots-ul li:after {
+  content: "................................................................................................................................................................";
+  display: block;
+  overflow: hidden;
+}
+.dots-ul span:first-child {
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-right: 0.625rem;
+}
+.dots-ul .price {
+  float: right;
+  text-align: right;
+  font-size: 1.125rem;
+  white-space: nowrap;
+  margin-left: 0.625rem;
+}
+.dots-ul .price:after {
+  content: "–";
+}
 .spec-btn {
   -webkit-transition: color 0.25s ease 0s;
   transition: color 0.25s ease 0s;
@@ -576,10 +617,23 @@ h2 {
   opacity: 1;
 }
 .main-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   height: 5.3125rem;
   line-height: 5.3125rem;
   background: #fff;
   color: #2c2c2d;
+}
+.main-footer a {
+  -webkit-transition: border 0.5s ease 0s;
+  transition: border 0.5s ease 0s;
+  color: #b37bb4;
+  border-bottom: 1px solid;
+  text-decoration: none;
+}
+.main-footer a:hover {
+  border-color: transparent;
 }
 .index-page {
   -webkit-transition: all 0.25s ease 0s;
@@ -710,7 +764,7 @@ h2 {
   min-height: 100%;
   background: url(../img/main/texture.jpeg);
   color: #fff;
-  padding-top: 14.6875rem;
+  padding: 14.6875rem 0 5.3125rem;
 }
 .normal-page .page-title {
   padding-top: 2.5rem;
@@ -853,29 +907,40 @@ h2 {
   background-image: url(../img/elements/arrow-right.png);
   right: -1.875rem;
 }
-.normal-page .desc {
-  margin: 2.1875rem 0;
-  font-size: 1.125em;
-  font-style: italic;
-  text-align: center;
-}
-.normal-page .page-content {
+.normal-page .columns {
   -webkit-column-count: 2;
-  /* Chrome, Safari, Opera */
   -moz-column-count: 2;
-  /* Firefox */
   column-count: 2;
+  -webkit-column-gap: 1.875rem;
+  -moz-column-gap: 1.875rem;
+  column-gap: 1.875rem;
 }
 .normal-page .page-content p {
   margin-top: 0;
+}
+.service-item:after {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 1.875rem;
+  background-image: url(../img/elements/service-aster.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin: 3.4375rem auto;
 }
 .service-item h2 {
   text-align: center;
   margin-bottom: 0.625rem;
 }
 .service-item .desc {
-  text-align: center;
+  font-size: 1.125em;
   font-style: italic;
+  text-align: center;
+  max-width: 43.125rem;
+  margin: 2.1875rem auto 2.8125rem;
+}
+.service-item .columns li {
+  margin-bottom: 1.25rem;
 }
 @media screen and (min-width: 1460px) {
   html {

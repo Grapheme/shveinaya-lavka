@@ -21,6 +21,15 @@
 	        transform: @val;
 }
 
+.auto-columns(@cols: 2, @gap: 30rem / @hfs) {
+	-webkit-column-count: @cols;
+    -moz-column-count: @cols;
+    column-count: @cols;
+	-webkit-column-gap: @gap;
+    -moz-column-gap: @gap;
+    column-gap: @gap;
+}
+
 .fl-r {
 	float: right;
 }

@@ -8,6 +8,56 @@ h2 {
 	font-size: 32rem / @hfs;
 }
 
+main ul {
+	.list-unstyled;
+
+	li {
+		position: relative;
+		padding-left: 40rem / @hfs;
+		margin-bottom: 30rem / @hfs;
+
+		&:before {
+			content: "";
+			position: absolute;
+			left: 15rem / @hfs;
+			top: .4em;
+			width: 8px;
+			height: 8px;
+			border-radius: 8px;
+			background: #fff;
+		}
+	}
+}
+
+.dots-ul {
+	li {
+		&:after {
+			content: "................................................................................................................................................................";
+			display: block;
+			overflow: hidden;
+		}
+	}
+
+	span:first-child {
+		float: left;
+		overflow: hidden;
+		white-space: nowrap;
+		margin-right: 10rem / @hfs;
+	}
+
+	.price {
+		float: right;
+		text-align: right;
+		font-size: 18rem / @hfs;
+		white-space: nowrap;
+		margin-left: 10rem / @hfs;
+
+		&:after {
+			content: "–";
+		}
+	}
+}
+
 .spec-btn {
 	.transition(color, .25s);
 	.spsl_regular;
