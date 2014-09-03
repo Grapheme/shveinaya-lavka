@@ -151,11 +151,11 @@ html {
 }
 h1 {
   font-family: 'spsl_clarendoncregular';
-  font-size: 3.75rem;
+  font-size: 3.75em;
 }
 h2 {
   font-family: 'spsl_clarendoncregular';
-  font-size: 2rem;
+  font-size: 2em;
 }
 main ul {
   margin: 0;
@@ -1074,6 +1074,61 @@ main .page-content a:hover {
   box-sizing: border-box;
   padding-left: 2.1875rem;
   width: 80%;
+}
+.contacts {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.contacts .contact-block {
+  font-size: 1.125em;
+  font-style: italic;
+}
+.contacts .contact-block .contact-link {
+  font-family: 'SPSLSwordsmanC';
+  font-size: 1.375em;
+  border: 0 none;
+  font-style: normal;
+  color: inherit;
+  text-decoration: none;
+}
+.contacts .contact-block .contact-link:hover {
+  color: #fff;
+}
+.contacts .contact-block .aster {
+  display: inline-block;
+  width: 1.0625rem;
+  height: 1rem;
+  background-image: url(../img/elements/contacts-aster.png);
+  margin: 0 0.625rem;
+}
+.contacts .email-block {
+  margin: 1.875rem 0 3.125rem;
+}
+.contacts .cards-block .title {
+  font-size: 0.875em;
+  margin-bottom: 0.625rem;
+}
+.contacts .cards-block span {
+  font-family: 'Vaccine-Regular';
+  font-size: 1.125em;
+  text-transform: uppercase;
+}
+.contacts .cards-block span:before,
+.contacts .cards-block span:after {
+  position: relative;
+  display: inline-block;
+  top: -0.125em;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #fff;
+  margin: 0 0.625em;
+}
+.contacts .cards-block span:before {
+  content: "";
+}
+.contacts .cards-block span:last-child:after {
+  content: "";
 }
 @media screen and (min-width: 1460px) {
   html {
