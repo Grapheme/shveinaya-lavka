@@ -49,6 +49,31 @@
 			.title-img {
 				//display: none;
 			}
+
+			h1 {
+				&:before { display: none; }
+				&:after { display: none; }
+			}
+		}
+
+		.columns {
+			.auto-columns(1, 0);
+		}
+
+		.slider-container {
+			margin: 0 0 40rem / @hfs;
+
+			.fotorama-nav, .prev, .next {
+				display: none;
+			}
+
+			.slider-border {
+				border: 0 none;
+
+				.photo-slider {
+					border: 0 none;
+				}
+			}
 		}
 	}
 }
