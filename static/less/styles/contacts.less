@@ -2,6 +2,60 @@
 	text-align: center;
 	margin-bottom: 80rem / @hfs;
 
+	.contact-map {
+		position: relative;
+		height: 639rem / @hfs;
+		width: 912rem / @hfs;
+		margin: 0 auto;
+		background-image: url(../img/elements/map.png);
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+		margin-bottom: 80rem / @hfs;
+
+		.cm-text {
+			position: absolute;
+			font-style: italic;
+			font-size: 16em / @hfs;
+
+			&.cm-hoff {
+				top: 20%;
+				left: 18%;
+			}
+
+			&.cm-food {
+				top: 20%;
+				left: 46%;
+			}
+
+			&.cm-center {
+				bottom: -4%;
+				left: 43%;
+			}
+		}
+
+		.cm-btext {
+			.spsl_regular;
+			position: absolute;
+			font-size: 18em / @hfs;
+			text-transform: uppercase;
+
+			&.cm-zara {
+				top: 33%;
+				right: 22%;
+			}
+
+			&.cm-kino {
+				top: 45%;
+				left: 5%;
+			}
+
+			&.cm-mexx {
+				top: 69%;
+				left: 17%;
+			}
+		}	
+	}
+
 	.contact-block {
 		font-size: 18em / @hfs;
 		font-style: italic;

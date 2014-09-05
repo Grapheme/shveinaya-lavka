@@ -60,11 +60,14 @@ var scroll_menu = (function(){
 			navReset();
 		} else {
 			setVars();
+			if($(window).scrollTop() >= orig_nav) {
+				setNav();
+			}
 		}
 	});
 
 	function setVars() {
-		orig_nav = header.find('.head-nav').offset().top;
+		orig_nav = header.find('.head-nav').position().top;
 		orig_pos = header.css('position');
 		header_height = header.outerHeight();
 	}
