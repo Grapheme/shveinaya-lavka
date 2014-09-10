@@ -28,7 +28,7 @@
                             <li><a href="{{ URL::route('page', 'service') }}">Услуги</a>
                             <li><a href="{{ URL::route('page', 'examples') }}">Примеры работ</a>
                             <li><a href="{{ URL::route('page', 'advice') }}">Советы стилиста</a>
-                            <li><a href="{{ URL::route('news') }}">Новости</a>
+                            <li><a href="{{ URL::route('page', 'newslist') }}">Новости</a>
                             <li><a href="{{ URL::route('page', 'contacts') }}">Контакты</a>
                         </ul>
                     </nav>
