@@ -3,7 +3,15 @@ Options +FollowSymLinks
 Options -Indexes
 
 <IfModule mod_rewrite.c>
+
     RewriteEngine on
-	#RewriteCond %{REQUEST_URI} !static/
-	RewriteRule (.*) public/$1 [L]
+
+	# project.dev.grapheme.ru
+    #RewriteCond %{DOCUMENT_ROOT}/public -d
+	RewriteCond %{HTTP_HOST} !^dev.grapheme.ru$
+	RewriteRule (.*) /public/$1 [L]
+
+	# dev.grapheme.ru/project/
+    RewriteRule (.*) ./public/$1 [L]
+
 </IfModule>

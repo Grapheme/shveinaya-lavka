@@ -1,4 +1,11 @@
 <?php
+
+##
+## Fix SCRIPT_NAME from /public/.htaccess
+##
+if (isset($_SERVER['REDIRECT_SCRIPT_NAME']))
+    $_SERVER['SCRIPT_NAME'] = $_SERVER['REDIRECT_SCRIPT_NAME'];
+
 ##
 ## Custom Request object initialization
 ## http://laravel.ru/articles/odd_bod/extending-request-and-response#наследование_класса_phprequest-12
@@ -16,7 +23,6 @@ $env = $app->detectEnvironment(array(
 	'sc' => array('MAC-PC'),
 	'server1.grapheme.ru' => array('www.grapheme.ru'),
 	'server2.grapheme.ru' => array('grapheme'),
-	#'server3.grapheme.ru' => array('samoilovi.ru'), ## FreeBSD, Laravel NOT available! 
 ));
 $app->bindInstallPaths(require __DIR__.'/paths.php');
 $framework = $app['path.base'].'/vendor/laravel/framework/src';
