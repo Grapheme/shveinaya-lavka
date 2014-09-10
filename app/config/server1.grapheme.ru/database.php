@@ -6,7 +6,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'quest_zenit',
+			'database'  => 'shveinaya-lavka',
 			'username'  => 'root',
 			'password'  => 'perl03',
 			'charset'   => 'utf8',
