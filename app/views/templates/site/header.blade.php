@@ -24,12 +24,13 @@
                     </div>
                     <nav class="head-nav">
                         <ul>
-                            <li><a href="{{ URL::route('page', 'about') }}">Об ателье</a>
-                            <li><a href="{{ URL::route('page', 'service') }}">Услуги</a>
-                            <li><a href="{{ URL::route('page', 'examples') }}">Примеры работ</a>
-                            <li><a href="{{ URL::route('page', 'advice') }}">Советы стилиста</a>
-                            <li><a href="{{ URL::route('page', 'newslist') }}">Новости</a>
-                            <li><a href="{{ URL::route('page', 'contacts') }}">Контакты</a>
+                            <? #dd(Route::getCurrentRoute()->getParameter('url')); ?>
+                            <li><a href="{{ URL::route('page', 'about') }}"{{ Helper::isRoute('page', ['url' => 'about']) }}>Об ателье</a>
+                            <li><a href="{{ URL::route('page', 'service') }}"{{ Helper::isRoute('page', ['url' => 'service']) }}>Услуги</a>
+                            <li><a href="{{ URL::route('page', 'examples') }}"{{ Helper::isRoute('page', ['url' => 'examples']) }}>Примеры работ</a>
+                            <li><a href="{{ URL::route('page', 'advice') }}"{{ Helper::isRoute('page', ['url' => 'advice']) }}>Советы стилиста</a>
+                            <li><a href="{{ URL::route('page', 'newslist') }}"{{ Helper::isRoute('page', ['url' => 'newslist']) }}>Новости</a>
+                            <li><a href="{{ URL::route('page', 'contacts') }}"{{ Helper::isRoute('page', ['url' => 'contacts']) }}>Контакты</a>
                         </ul>
                     </nav>
                 </div>

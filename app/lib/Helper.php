@@ -517,7 +517,19 @@ HTML;
         if ($len>= 4 && $len <=6){ return sprintf("%0.2f Kb", $number/1024); }
         if ($len>= 7 && $len <=9){ return sprintf("%0.2f Mb", $number/1024/1024); }
         return sprintf("%0.2f Gb", $number/1024/1024/1024);
+    }
 
+    public static function isRoute($route_name = false, $route_params = array(), $match_text = ' class="active"', $mismatch_text = '') {
+
+        $match = true;
+        $route = Route::getCurrentRoute();
+        foreach ($route_params as $key => $value) {
+            if ($route->getParameter($key) != $value) {
+                $match = false;
+                break;
+            }
+        }
+        return (Route::currentRouteName() == $route_name && $match) ? $match_text : $mismatch_text;
     }
 }
 
