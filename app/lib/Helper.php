@@ -523,10 +523,25 @@ HTML;
 
         $match = true;
         $route = Route::getCurrentRoute();
-        foreach ($route_params as $key => $value) {
-            if ($route->getParameter($key) != $value) {
-                $match = false;
-                break;
+        #dd($route->getAction());
+        #dd($route->getPath());
+
+        if (is_string($route_params)) {
+            preg_match("~\{([^\}]+?)\}~is", $route->getPath(), $matches);
+            #Helper::dd($matches);
+            if (@$matches[1] != '')
+                $route_params = array($matches[1] => $route_params);
+            else
+                $route_params = array();
+        }
+        #Helper::d($route_params);
+
+        if (count($route_params)) {
+            foreach ($route_params as $key => $value) {
+                if ($route->getParameter($key) != $value) {
+                    $match = false;
+                    break;
+                }
             }
         }
         return (Route::currentRouteName() == $route_name && $match) ? $match_text : $mismatch_text;
