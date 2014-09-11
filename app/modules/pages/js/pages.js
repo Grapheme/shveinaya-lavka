@@ -1,16 +1,19 @@
 // some JS code
 $(document).on('click', '.pages_block_redactor_toggle', function(){
 
-    var element = $('#blockEditModal textarea');
+    //var element = $('#blockEditModal textarea');
+    var element = $(this).parent().parent().find('textarea');
+console.log(element);
     var inited = $(element).parent().find('.redactor_editor').attr('class');
+console.log(inited);
 
     if( inited ) {
-        $('#blockEditModal textarea').redactor('destroy');
-        //$(element).addClass('destroy')
+        $(element).redactor('destroy');
     } else {
-        $('#blockEditModal .redactor').redactor(imperavi_config || {});
-        $('#blockEditModal .redactor-no-filter').redactor(imperavi_config_no_filter || {});
-        //$(element).removeClass('destroy')
+        if ( $(element).hasClass('redactor') )
+            $(element).redactor(imperavi_config || {});
+        else if ( $(element).hasClass('redactor-no-filter') )
+            $(element).redactor(imperavi_config_no_filter || {});
     }
 
 });
