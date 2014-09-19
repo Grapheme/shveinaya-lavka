@@ -1,5 +1,5 @@
 
-        <header class="main-header index-header">
+        <header class="main-header @if(Request::is('/')) index-header @endif">
             <div class="wrapper">
                 <a href="{{ URL::to('/') }}" class="min-logo"></a>
                 <a href="{{ URL::to('/') }}" class="logo"></a>
@@ -46,12 +46,12 @@
                 <section class="mobile-menu">
                     <nav class="head-nav">
                         <ul>
-                            <li><a href="{{ URL::route('page', 'about') }}">Об ателье</a>
-                            <li><a href="{{ URL::route('page', 'service') }}">Услуги</a>
-                            <li><a href="{{ URL::route('page', 'examples') }}">Примеры работ</a>
-                            <li><a href="{{ URL::route('page', 'advice') }}">Советы стилиста</a>
-                            <li><a href="{{ URL::route('news') }}">Новости</a>
-                            <li><a href="{{ URL::route('page', 'contacts') }}">Контакты</a>
+                            <li><a href="{{ URL::route('page', 'about') }}"{{ Helper::isRoute('page', 'about') }}>Об ателье</a>
+                            <li><a href="{{ URL::route('page', 'service') }}"{{ Helper::isRoute('page', 'service') }}>Услуги</a>
+                            <li><a href="{{ URL::route('page', 'examples') }}"{{ Helper::isRoute('page', 'examples') }}>Примеры работ</a>
+                            <li><a href="{{ URL::route('page', 'advice') }}"{{ Helper::isRoute('page', 'advice') }}>Советы стилиста</a>
+                            <li><a href="{{ URL::route('page', 'newslist') }}"{{ Helper::isRoute('page', 'newslist') }}>Новости</a>
+                            <li><a href="{{ URL::route('page', 'contacts') }}"{{ Helper::isRoute('page', 'contacts') }}>Контакты</a>
                         </ul>
                     </nav>
                     <div class="head-contacts">

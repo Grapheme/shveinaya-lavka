@@ -74,5 +74,6 @@
 @section('scripts')
         <script>
             $(document).main_slider($('.main-slide'));
+            $(document).index_header();
         </script>
 @stop

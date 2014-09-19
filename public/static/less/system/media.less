@@ -54,6 +54,17 @@
 				&:before { display: none; }
 				&:after { display: none; }
 			}
+
+			&.service-title {
+				.title-img {
+					&:before {
+						width: 66rem / @hfs;
+						height: 72rem / @hfs;
+						background-image: url(../img/pages/service-title-mobile.png);
+						margin-bottom: 20rem / @hfs;
+					}
+				}
+			}
 		}
 
 		.columns {
@@ -73,6 +84,66 @@
 				.photo-slider {
 					border: 0 none;
 				}
+			}
+		}
+	}
+
+	.index-page {
+		font-size: 10px;
+
+		.main-slide {
+			.slide-block {
+				top: -5%;
+
+				h1 {
+					font-size: 50em / @hfs;
+					line-height: 45rem / @hfs;
+				}
+
+				p {
+					margin-bottom: 25rem / @hfs;
+				}
+			}
+		}
+	}
+
+	.news-ul {
+		width: auto;
+	}
+
+	.service-item {
+		.dots-ul {
+			li {
+				span:first-child {
+					display: inline-block;
+					float: none;
+					white-space: pre-wrap;
+					width: 70%;
+				}
+
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.contacts {
+		.contact-map {
+			width: 100%;
+			height: 29rem;
+			height: 65vw;
+
+			& > div {
+				display: none;
+			}
+		}
+
+		.contact-block {
+			.aster {
+				display: block;
+				width: 100%;
+				margin: 5rem / @hfs 0;
 			}
 		}
 	}

@@ -54,12 +54,14 @@
 
 		&.animate {
 			.slide-block {
-				.transition(opacity, .5s, ease, .5s);
+				.transition(all, .5s, ease, .15s);
+				.transform(scale(.975) translateY(10px));
 				opacity: 0;
 			}
 
 			&.active {
 				.slide-block {
+					.transform(scale(1));
 					opacity: 1;
 				}
 			}

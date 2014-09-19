@@ -152,7 +152,8 @@
 
 	.slider-container {
 		position: relative;
-		margin: 0 20rem / @hfs 80rem / @hfs;
+		max-width: 60rem;
+		margin: 0 auto 80rem / @hfs;
 
 		.slider-border {
 			border: 1px solid rgba(255, 255, 255, .5);
@@ -179,6 +180,7 @@
 		}
 
 		.prev, .next {
+			.transition(opacity, .25s);
 			position: absolute;
 			display: inline-block;
 			width: 60rem / @hfs;
@@ -187,16 +189,35 @@
 			background-size: 100%;
 			top: 50%;
 			margin-top: -60rem / 2 / @hfs;
+
+			&:before {
+				.transition(opacity, .25s);
+				content: "";
+				position: absolute;
+				left: 0; top: 0; right: 0; bottom: 0;
+				opacity: 0;
+				background-size: 100% 100%;
+			}
+
+			&:hover {
+				&:before {
+					opacity: 1;
+				}
+			}
 		}
 
 		.prev {
 			background-image: url(../img/elements/arrow-left.png);
 			left: -30rem / @hfs;
+
+			&:before { background-image: url(../img/elements/arrow-left-hover.png); }
 		}
 
 		.next {
 			background-image: url(../img/elements/arrow-right.png);
 			right: -30rem / @hfs;
+
+			&:before { background-image: url(../img/elements/arrow-right-hover.png); }
 		}
 	}
 
