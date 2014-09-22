@@ -21,12 +21,7 @@
 
                 </div>
             </div>
-        </main>
 
-@stop
-
-
-@section('footer')
 @stop
 
 

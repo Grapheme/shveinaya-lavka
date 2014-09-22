@@ -145,7 +145,7 @@ html {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
-  max-width: 59.0625rem;
+  max-width: 62rem;
   padding: 0 1.25rem;
   margin: 0 auto;
 }
@@ -202,7 +202,7 @@ main .page-content a:hover {
 .dots-ul .price {
   float: right;
   text-align: right;
-  font-size: 1.125rem;
+  font-size: 1.125em;
   white-space: nowrap;
   margin-left: 0.625rem;
 }
@@ -215,9 +215,9 @@ main .page-content a:hover {
   font-family: 'spsl_clarendoncregular';
   position: relative;
   display: inline-block;
-  width: 25.5rem;
-  height: 2.75rem;
-  line-height: 2.75rem;
+  width: 25.5em;
+  height: 2.75em;
+  line-height: 2.75em;
   color: #fff;
   text-decoration: none;
 }
@@ -719,11 +719,17 @@ main .page-content a:hover {
   top: 4.895833333333333rem;
 }
 .index-page .main-slide.animate .slide-block {
-  -webkit-transition: opacity 0.5s ease 0.5s;
-  transition: opacity 0.5s ease 0.5s;
+  -webkit-transition: all 0.5s ease 0.15s;
+  transition: all 0.5s ease 0.15s;
+  -webkit-transform: scale(0.975) translateY(10px);
+  -ms-transform: scale(0.975) translateY(10px);
+  transform: scale(0.975) translateY(10px);
   opacity: 0;
 }
 .index-page .main-slide.animate.active .slide-block {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
   opacity: 1;
 }
 .index-page .main-slide .slide-block {
@@ -914,7 +920,8 @@ main .page-content a:hover {
 }
 .normal-page .slider-container {
   position: relative;
-  margin: 0 1.25rem 5rem;
+  max-width: 60rem;
+  margin: 0 auto 5rem;
 }
 .normal-page .slider-container .slider-border {
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -939,6 +946,8 @@ main .page-content a:hover {
 }
 .normal-page .slider-container .prev,
 .normal-page .slider-container .next {
+  -webkit-transition: opacity 0.25s ease 0s;
+  transition: opacity 0.25s ease 0s;
   position: absolute;
   display: inline-block;
   width: 3.75rem;
@@ -948,13 +957,36 @@ main .page-content a:hover {
   top: 50%;
   margin-top: -1.875rem;
 }
+.normal-page .slider-container .prev:before,
+.normal-page .slider-container .next:before {
+  -webkit-transition: opacity 0.25s ease 0s;
+  transition: opacity 0.25s ease 0s;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  background-size: 100% 100%;
+}
+.normal-page .slider-container .prev:hover:before,
+.normal-page .slider-container .next:hover:before {
+  opacity: 1;
+}
 .normal-page .slider-container .prev {
   background-image: url(../img/elements/arrow-left.png);
   left: -1.875rem;
 }
+.normal-page .slider-container .prev:before {
+  background-image: url(../img/elements/arrow-left-hover.png);
+}
 .normal-page .slider-container .next {
   background-image: url(../img/elements/arrow-right.png);
   right: -1.875rem;
+}
+.normal-page .slider-container .next:before {
+  background-image: url(../img/elements/arrow-right-hover.png);
 }
 .normal-page .columns {
   -webkit-column-count: 2;
@@ -1022,8 +1054,6 @@ main .page-content a:hover {
   display: none;
 }
 .year-tabs li {
-  -webkit-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -1036,7 +1066,7 @@ main .page-content a:hover {
   border-bottom: 1px solid #fff;
 }
 .year-tabs li.active {
-  border: 1px solid #fff;
+  border-color: #fff;
 }
 .year-tabs li.active span {
   border-color: transparent;
@@ -1144,6 +1174,9 @@ main .page-content a:hover {
   width: 1.0625rem;
   height: 1rem;
   background-image: url(../img/elements/contacts-aster.png);
+  background-size: 1.0625rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center center;
   margin: 0 0.625rem;
 }
 .contacts .email-block {
@@ -1220,6 +1253,12 @@ main .page-content a:hover {
   .normal-page .page-title h1:after {
     display: none;
   }
+  .normal-page .page-title.service-title .title-img:before {
+    width: 4.125rem;
+    height: 4.5rem;
+    background-image: url(../img/pages/service-title-mobile.png);
+    margin-bottom: 1.25rem;
+  }
   .normal-page .columns {
     -webkit-column-count: 1;
     -moz-column-count: 1;
@@ -1241,6 +1280,44 @@ main .page-content a:hover {
   }
   .normal-page .slider-container .slider-border .photo-slider {
     border: 0 none;
+  }
+  .index-page {
+    font-size: 10px;
+  }
+  .index-page .main-slide .slide-block {
+    top: -5%;
+  }
+  .index-page .main-slide .slide-block h1 {
+    font-size: 3.125em;
+    line-height: 2.8125rem;
+  }
+  .index-page .main-slide .slide-block p {
+    margin-bottom: 1.5625rem;
+  }
+  .news-ul {
+    width: auto;
+  }
+  .service-item .dots-ul li span:first-child {
+    display: inline-block;
+    float: none;
+    white-space: pre-wrap;
+    width: 70%;
+  }
+  .service-item .dots-ul li:after {
+    display: none;
+  }
+  .contacts .contact-map {
+    width: 100%;
+    height: 29rem;
+    height: 65vw;
+  }
+  .contacts .contact-map > div {
+    display: none;
+  }
+  .contacts .contact-block .aster {
+    display: block;
+    width: 100%;
+    margin: 0.3125rem 0;
   }
 }
 @media screen and (max-width: 325px) {

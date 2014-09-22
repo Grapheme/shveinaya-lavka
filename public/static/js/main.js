@@ -117,6 +117,22 @@ var scroll_menu = (function(){
 
 })();
 
+$.fn.index_header = function() {
+	function set() {
+		if($(window).scrollTop() > 100) {
+			$('.main-header').removeClass('index-header');
+		} else {
+			$('.main-header').addClass('index-header');
+		}
+	}
+
+	$(window).on('scroll', function(){
+		set();
+	});
+
+	set();
+}
+
 $.fn.main_slider = function(slide) {
 	var direction = false;
 	var down_timeout = false;

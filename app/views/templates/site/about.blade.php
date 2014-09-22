@@ -29,8 +29,6 @@
 
             {{ $page->block('desc') }}
 
-        </main>
-
 @stop
 
 

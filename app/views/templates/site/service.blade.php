@@ -12,8 +12,6 @@
 
             {{ $page->block('content') }}
 
-        </main>
-
 @stop
 
 
