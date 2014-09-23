@@ -2,7 +2,7 @@
 
 return array(
 	
-	'default' => function() {
+	'default' => function($params = array()) {
 
         return array(
 
