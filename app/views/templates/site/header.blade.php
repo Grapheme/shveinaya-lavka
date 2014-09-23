@@ -23,6 +23,7 @@
                         </div>
                     </div>
                     <nav class="head-nav">
+                        @if (0)
                         <ul>
                             <? #dd(Route::getCurrentRoute()->getParameter('url')); ?>
                             <li><a href="{{ URL::route('page', 'about') }}"{{ Helper::isRoute('page', 'about') }}>Об ателье</a>
@@ -32,6 +33,8 @@
                             <li><a href="{{ URL::route('page', 'newslist') }}"{{ Helper::isRoute('page', 'newslist') }}>Новости</a>
                             <li><a href="{{ URL::route('page', 'contacts') }}"{{ Helper::isRoute('page', 'contacts') }}>Контакты</a>
                         </ul>
+                        @endif
+                        {{ Helper::getMenu('default') }}
                     </nav>
                 </div>
             </div>

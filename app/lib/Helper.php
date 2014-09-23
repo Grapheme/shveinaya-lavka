@@ -184,10 +184,19 @@ class Helper {
      * @param $key
      * @return mixed
      */
-    public static function withdraw(&$array, $key) {
+    public static function withdraw(&$array, $key = '') {
         $val = @$array[$key];
         unset($array[$key]);
         return $val;
+    }
+
+    public static function withdraws(&$array, $keys = array()) {
+        $vals = array();
+        foreach ($keys as $key) {
+            $vals[$key] = @$array[$key];
+            unset($array[$key]);
+        }
+        return $vals;
     }
 
     public static function classInfo($classname) {
@@ -545,6 +554,116 @@ HTML;
             }
         }
         return (Route::currentRouteName() == $route_name && $match) ? $match_text : $mismatch_text;
+    }
+
+    public static function getMenu($menu_name = '') {
+
+        $menus = Config::get('menu', array());
+        if (!isset($menus[$menu_name]) || !is_callable($menus[$menu_name]))
+            return false;
+
+        $menu = $menus[$menu_name]();
+
+        if (
+            !@$menu['tpl']['container'] || !@$menu['tpl']['element_container'] || !@$menu['tpl']['element']
+            || !@is_array($menu['elements']) || !@count($menu['elements'])
+        )
+            return false;
+
+        /**
+         * Menu template
+         */
+        $tpl_container = $menu['tpl']['container'];
+        $tpl_element_container = $menu['tpl']['element_container'];
+        $tpl_element = $menu['tpl']['element'];
+        $active_class = $menu['active_class'];
+
+        $fake_attributes = array('_href', '_route', '_params', '_raw', '_text');
+
+        /**
+         * Process all menu element
+         */
+        $links = array();
+        foreach ($menu['elements'] as $e => $element) {
+
+            /**
+             * RAW - plain text of the element
+             */
+            if (isset($element['_raw'])) {
+
+                $link = $element['_raw'];
+
+            } else {
+
+                $url = '#';
+                if (isset($element['_href'])) {
+                    $url = @$element['_href'];
+                } elseif (isset($element['_route'])) {
+                    $url = action($element['_route'], @$element['_params']);
+                }
+
+                $attr = $element;
+                self::withdraws($attr, $fake_attributes);
+                #Helper::d($attr);
+
+                /**
+                 * Check active route
+                 */
+                if (@$element['_route']) {
+                    $active_value = self::isRoute(@$element['_route'], @$element['_params'], $active_class);
+                    #Helper::d('CLASS => ' . $active_value);
+                    if ($active_value) {
+                        $attr['class'] = trim(@$attr['class'] . ' ' . trim($active_value));
+                    }
+                }
+
+                /**
+                 * Make string line of link attributes, from array
+                 */
+                $attr_array = array();
+                foreach ($attr as $attribute_key => $attribute_value) {
+                    $attr_array[] = $attribute_key . '="' . $attribute_value . '"';
+                }
+                $attr_string = implode(' ', $attr_array);
+                #Helper::d($attr_string);
+
+                /**
+                 * Make link
+                 */
+                $link = strtr($tpl_element, array(
+                    '%url%' => $url,
+                    '%attr%' => $attr_string,
+                    '%text%' => @$element['_text'],
+                ));
+
+            }
+
+            /**
+             * Make string line of link's container attributes, from array
+             */
+            $container_attr_string = '';
+            if (isset($element['_container_attributes']) && is_array($element['_container_attributes']) && count($element['_container_attributes'])) {
+                $container_attr_array = array();
+                foreach ($element['_container_attributes'] as $attribute_key => $attribute_value) {
+                    $container_attr_array[] = $attribute_key . '="' . $attribute_value . '"';
+                }
+                $container_attr_string = implode(' ', $container_attr_array);
+                #Helper::d($container_attr_string);
+            }
+
+            $link = strtr($tpl_element_container, array(
+                '%attr%' => $container_attr_string != '' ? ' ' . $container_attr_string : '',
+                '%element%' => $link,
+            ));
+
+            $links[] = $link;
+        }
+        #Helper::dd($links);
+        $return = strtr($tpl_container, array(
+            '%elements%' => implode('', $links),
+        ));
+        #Helper::dd($return);
+        return $return;
     }
 }
 
