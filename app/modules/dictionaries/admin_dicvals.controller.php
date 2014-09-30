@@ -336,7 +336,7 @@ class AdminDicvalsController extends BaseController {
                 #Helper::d($fields);
                 foreach ($element_fields as $key => $_value) {
 
-                    if (is_numeric($key))
+                    if (is_numeric($key) || !isset($fields[$key]))
                         continue;
 
                     #Helper::d($key);
@@ -386,9 +386,10 @@ class AdminDicvalsController extends BaseController {
                     #continue;
                     foreach ($fields_i18n as $locale_sign => $values) {
 
-                        $value = @$values[$field_name];
-                        if (!$value)
+                        if (!isset($values[$field_name]))
                             continue;
+
+                        $value = @$values[$field_name];
 
                         ## If handler of field is defined
                         if (is_callable($handler = @$element_fields_i18n[$field_name]['handler'])) {
